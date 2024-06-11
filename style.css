@@ -1,0 +1,125 @@
+  body *{
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+  }
+  
+  h1 {
+    font-size: 60px;
+    font-weight: 400;
+    font-family: 'Allerta Stencil', sans-serif;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+  }
+
+  .titleSection{
+    text-align: center;
+    background-color: #bebebe;
+    height: 80px;
+    padding: 30px 0;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    width: 100%;
+  }
+
+  .titleImage {
+    height: 70px;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+  }
+
+  body {
+    background-image: url('https://raw.githubusercontent.com/Jngg0093/DataVis2/main/Data%20Visualisation%202/Data/camo.jpg');
+    background-size: contain;
+  }
+
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+  }
+
+  .subsection{
+    border-radius: 25px;
+    background-color: white;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .chartTitle{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+
+  .subtitle {
+    background-color: #bebebe;
+    font-size: large;
+    margin: auto;
+    padding: 20px 0;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+  }
+
+  .description-left {
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+    padding-left: 40px;
+    padding-right: 20px;
+    text-align: left;
+    line-height: 1.5em;
+  }
+
+  .description-right {
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+    padding-left: 20px;
+    padding-right: 40px;
+    text-align: left;
+    line-height: 1.5em;
+  }
+
+  .page {
+    width: 1100px;
+    background-color: #e3e0d5;
+    margin: auto;
+    padding: 20px;
+    padding-top: 20px;
+  }
+  
+  .vis-container {
+    width: calc(100% - 80px);
+    margin-right: 40px;
+    margin-left: 40px;
+    border: None;
+  }
+
+  .vis-container-left {
+    width: calc(100% - 60px);
+    margin-right: 20px;
+    margin-left: 40px;
+    border: None;
+  }
+
+  .vis-container-right {
+    width: calc(100% - 60px);
+    margin-right: 40px;
+    margin-left: 20px;
+    border: None;
+  }
+
+  .pure-g {
+    margin-bottom: 10px;
+  }
+
+#refugee{
+  width: 100%;
+}

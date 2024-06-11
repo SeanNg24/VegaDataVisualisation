@@ -1,0 +1,142 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jngg0093/DataVis2/main/Data%20Visualisation%202/Data/financialaid.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "fold": [
+        "Financial commitments",
+        "Humanitarian commitments",
+        "Military commitments",
+        "Share in total EU commitments"
+      ]
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "value",
+          "as": "summed"
+        }
+      ],
+      "groupby": [
+        "Alliance",
+        "key"
+      ]
+    },
+    {
+      "calculate": "'$' + format(datum.summed, '.2f') + ' billion'",
+      "as": "tooltiptext"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "y": {
+          "aggregate": "sum",
+          "field": "summed",
+          "title": "Aid (USD$ billion)"
+        },
+        "x": {
+          "field": "Alliance",
+          "sort":["non-NATO", "NATO"],
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+        "color": {
+          "field": "key",
+          "scale": {
+            "domain": [
+              "Financial commitments",
+              "Humanitarian commitments",
+              "Military commitments",
+              "Share in total EU commitments"
+            ],
+            "range": [
+              "#e78ac3",
+              "#8da0cb",
+              "#fc8d62",
+              "#66c2a5"
+            ]
+          },
+          "legend": {
+            "orient": "top-left",
+            "titleAnchor": "middle",
+            "title": "Type of Aid",
+            "titleAlign": "right",
+            "labelExpr": "datum.label == 'Financial commitments' ? 'Financial': datum.label == 'Humanitarian commitments' ? 'Humanitarian': datum.label == 'Military commitments' ? 'Military' : 'Share in EU Commitments'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Alliance",
+            "type": "nominal"
+          },
+          {
+            "field": "key",
+            "title": "Type of Aid"
+          },
+          {
+            "field": "tooltiptext",
+            "title": "Aid Value"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "summed",
+              "as": "total"
+            }
+          ],
+          "groupby": [
+            "Alliance"
+          ]
+        },
+        {
+          "calculate": "'$' + format(datum.total, '.2f') + ' billion'",
+          "as": "rawtext"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dy": -8,
+        "baseline": "middle",
+        "fontStyle": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "rawtext"
+        },
+        "x": {
+          "field": "Alliance",
+          "type": "ordinal",
+          "sort":["non-NATO", "NATO"]
+        },
+        "y": {
+          "field": "total",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}
